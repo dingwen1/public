@@ -1,0 +1,599 @@
+/* 全局样式 */
+
+ul,li,ol,a{
+    list-style: none;
+    margin:0;
+    color:#333;
+    transition: all .5s ease;
+}
+body{
+    
+    background-image: url(../img/bac.jpg);
+    background-position: 0 -200px;
+    background-size: contain;
+}
+a.redfont{
+    color: red;
+}
+div.nave,div.inputgroup{
+    margin-top:2%;
+    font-size: 16px;
+   
+}
+.body-img .ori-down{
+    background: rgba(238,238,238,0.6)
+}
+div.nave>.logo{
+    float:left;
+}
+div.nave>.inputgroup{
+    float: right; 
+    font-size:14px;  
+}
+div.nave input[name="keyword"]{
+    margin-left: 20px;
+    padding-left:10px;
+}
+button.input-btn{
+    color:#fff;
+    background: #555;
+    margin-left: -3px;
+    outline:1px solid #555;
+    border:1px solid transparent;
+    transition: all .5s ease;
+}
+button.input-btn:hover{
+    color: #555;
+    background: #fff;
+}
+div.nave .familygroup ul{
+    height:50px;
+    width: 60%;
+    float: left;
+}
+div.nave .familygroup a:hover{
+    color: red;
+}
+div.nave li{
+    float: left;
+    margin: 3%;
+    margin-left:0;
+}
+div.nave .headerR{
+    display: block;
+    float: right;
+    line-height: 3em;
+}
+
+div.carousel img{
+    width:100%;
+    cursor: pointer;
+}
+div.carousel .carousel-control .glyphicon{
+    position: relative;
+    top:45%;
+}
+div.carousel .carousel-indicators{
+    top:94%;
+    left:116%;
+    width:110px;
+}
+div.carousel .carousel-indicators li{
+    background: #555;
+}
+div.carousel .carousel-indicators li:hover{
+    background:#00A0E9;
+}
+div.carousel .carousel-indicators li.active{
+    background: #00A0E9;
+}
+div.carousel .glyphicon{
+    transform: scale(1.3);
+}
+div.carousel p{
+    line-height: 2.5;
+    margin-left:10%;
+    font-size:15px;
+}
+div.carousel p a{
+    color:#00A0E9
+}
+
+div.body-img .nave-img>*{
+    padding:5px;
+}
+
+ div.body-img .nave-img a{
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+} 
+div.body-img .nave-img a img:nth-child(1){
+    width: 100%;
+    height:100%;
+    transition: all 1s ease;
+}
+div.body-img .nave-img a img:nth-child(2){
+    position: absolute;
+    width: 90%;
+    top:5px;
+}
+div.body-img .nave-img div:nth-child(7) a img:nth-child(2){
+    width:45%;
+}
+div.body-img .nave-img a img:nth-child(1):hover{
+    transform: scale(1.05);
+}
+div.body-img .nave-img a p{
+    width:96.5%;
+    height: 15%;
+    background: rgba(0, 0, 0, 0.7);
+    color:#fff;
+    font-size: 15px;
+    padding-top:3%;
+    text-align: center;
+    position: absolute;
+    bottom: -5px;
+    left:5px;
+    transition: all .5s ease;
+    display: none;
+}
+div.body-img .nave-img div:nth-child(7) a p{
+    width:98%;
+    padding-top: 2%;
+}
+div.origina>p{
+    padding: 1.5%;
+    font-size:14px;
+    color: #555;
+}
+div.origina>p a{
+    color: #00A0E9;
+}
+div.origina>p span:nth-child(1){
+    font-size:21px;
+    margin-right: 10px;
+}
+div.origina>p span:nth-child(3){
+    float: right;
+}
+
+div.origina>div{
+    padding:5px;
+    border:1px solid #eed;
+    transition: all .5s ease;
+}
+div.origina>div:hover{
+    box-shadow: 3px 3px 5px #555;
+}
+div.origina>div img{
+    width:100%;
+    height: 100%;
+}
+.ori-up{
+    width:100%;
+    height: 50%
+}
+.ori-down{
+    width:100%;
+    height: 50%;
+    padding: 5px;
+}
+.ori-down p{
+    line-height: 1.7;
+    color:#888;
+    padding-left:5%;
+}
+.ori-down .title{
+    color: #000;
+    font-size:17px;
+    font-weight: 600;
+    overflow: hidden;
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;    
+}
+.ori-down .pro_fam{
+    color:#00A0E9;
+}
+.ori-down .pro_messa span{
+    color: red;
+    margin-right: 3px;
+}
+.ori-down .pavator{
+    text-align: right;
+}
+.ori-down .pavator img{
+    width: 18%;
+}
+
+div.body-clutter{
+    border-top:1px solid #ccc;
+    margin-top:20px;
+}
+div.body-clutter>div:nth-child(1){
+    border-right: 1px solid #ccc;
+}
+div.clutter_head{
+    line-height: 2.5;
+    font-size: 17px;
+    font-weight: 500;
+    border-bottom: 1px solid #555;
+}
+div.clutter_head a{
+    font-size:15px;
+    float: right;
+    color:#00A0E9;
+}
+div.autor_show>div{
+    height:85px;
+    padding: 8px;
+    padding-right: 8%;
+}
+div.autor_show>div img{
+    height: 97%;
+}
+div.autor_show>div>span:nth-child(2){
+    float: right;
+}
+div.autor_show>div>span:nth-child(2) p{
+    line-height: 0.9;
+    color: #555;
+}
+div.autor_show>div>span:nth-child(2)>p:nth-child(1){
+    font-weight: 800;
+    font-size:15px;
+    line-height: 1.3
+}
+
+div.salon_show{
+    padding: 8px;
+}
+div.salon_show>p span{
+    float: right;
+}
+
+div.footer{
+    margin-top:60px;
+    width:100%;
+    height: 180px;
+    background-color: #333;
+}
+div.footer{
+    line-height: 180px;
+    color:#fff;
+    text-align: center;
+    font-size: 12px;
+}
+div.footer span{
+    margin-left: 5%;
+}
+div.footer a{
+    color: #fff;
+}
+div.footer a:hover{
+    color: red;
+}
+div.backtop{
+    display: none;
+    position: fixed;
+    right:2%;
+    bottom: 3%;
+    background-color: rgba(44, 44, 44,0.8);
+    height: 80px;
+    width: 45px;
+    font-size:30px;
+    line-height: 85px;
+    text-shadow: 3px 3px 3px #000;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+div.backtop:hover{
+    border-radius: 3px;
+    box-shadow: 2px 2px 4px #555;
+}
+
+/* production页面 */
+div.body_all{
+    margin-top: 30px;
+    padding: 20px 0;
+    background: #eee;
+}
+div.fams{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1%;
+}
+div.fams>p{
+    line-height: 1.6;
+    background-image: url(../img/cs.index/logo_icon.png);
+    font-size: 15px;
+    background-repeat: no-repeat;
+    padding-left: 3%;
+    color: #777;
+    border-bottom:1px solid #ccc;
+}
+div.fams>p a{
+    color: #00A0E9;
+}
+div.fams>div p{
+    display: block;
+    float: left;
+    width: 60%;
+    margin-right: 0;
+}
+div.fams>div p a{
+    margin-right: 2%;
+}
+div.fams>div p a:hover{
+    color: red;
+}
+div.fams>div>a{
+    float: left;
+    margin-right: 1%;
+}
+div.page_msg{
+    border-bottom: 1px solid #ccc;
+    padding: 1% 5%;
+}
+div.page_msg>span:nth-child(2){
+    float: right;
+}
+div.page_msg>span:nth-child(2) a{
+    display: inline-block;
+    color:#555;
+    background-color: #ccc;
+    padding:0 8px;
+}
+div.page_msg>span:nth-child(2) a:hover{
+    background-color: #00A0E9;
+    color: #fff;
+}
+div#page_msg>span:nth-child(2)>a.btn_slect{
+    background-color: #00A0E9;
+    color: #fff;
+}
+
+/* avator.html */
+div.body_title{
+    padding: 1% 1%;
+}
+div.body_title>span:nth-child(2){
+    float: right;
+}
+div.tou_img{
+    width:100%;
+    height: 71%;
+    margin-bottom: 10px;
+}
+div.avator_show>div:nth-child(2) p{
+    line-height: 1;
+    padding-left: 5%;
+    font-size: 12px;
+}
+div.avator_show>div:nth-child(2) p:nth-child(1){
+    font-size: 16px;
+    font-weight: 600;
+}
+div.avator_show>div:nth-child(2) p:nth-child(3) span{
+    color:red;
+} 
+
+/* 页面proinfo.html的调整 */
+div.textHead{
+    border-bottom:1px solid #aaa;
+}
+div.textHead>div:nth-child(1){
+    border-right: 1px solid #aaa;
+}
+div.textHead>div:nth-child(1)>p:nth-child(1){
+    font-size:1.4em;
+    font-weight: 600;
+}
+div.textHead>div:nth-child(1)>p:nth-child(2) span{
+    color: #00A0E9;
+}
+div.textHead>div:nth-child(1)>p:nth-child(3) span{
+    color: red;
+}
+div.textHead>div:nth-child(2)>a{
+    display: block;
+    width: 33%;
+    float: left;
+}
+div.textHead>div:nth-child(2)>a>img{
+    width: 100%;
+}
+div.textHead>div:nth-child(2)>div{
+    float: left;
+    margin-left: 6%;
+    padding: 3%;
+    color:#666
+}
+div.textHead>div:nth-child(2)>div a{
+    font-size:1.2em;
+    line-height: 2;
+}
+div.likeIcon{
+    text-align: center;
+    font-size:4em;
+    padding: 3% 0 2% 0;
+}
+div.likeIcon i.a{
+    color: #00A0E9;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+div.likeIcon i.a:hover{
+    transform: scale(1.05);
+    text-shadow: 2px 2px 5px #555;
+}
+div.comment{
+    padding: 2% 1%;
+}
+div.comment>div>p:nth-child(1){
+    font-size:1.3em;
+    padding: 1% 0;
+    font-weight: 600;
+    border-top: 1px solid #ccc;
+    margin-top:3%;
+}
+#mycomm{
+    width:100%;
+    max-width: 100%;
+    transition: all .5s ease;
+}
+#mycomm:focus{
+    outline: 0;
+    box-shadow: 3px 3px 5px #555;
+}
+div.mycomm button{
+    padding: 0.5% 3%;
+    font-size: 1.1em;
+    border-radius: 20px;
+    border:1px solid #555;
+    outline: 0;
+    margin-right: 4%;
+    transition: all .5s ease;
+}
+div.mycomm button:hover{
+    background:#555;
+    color: #fff;
+}
+div.yourcomm{
+    padding: 4px;
+    margin: 3px;
+    border-bottom:1px solid #dde;
+}
+div.yourcomm>a{
+    display: block;
+    width:10%;
+    float: left;
+}
+div.yourcomm>a img{
+    width:70%;
+}
+div.yourcomm>div{
+    width: 90%;
+    float: left;
+}
+div.yourcomm>div>p:nth-child(1) a{
+    font-size: 1.3em;
+    color:#133330;
+}
+div.yourcomm>div>p:nth-child(1) span{
+    float: right;
+}
+
+/* usermessage.html */
+div.msg{
+    height: 700px;
+}
+div.msg>div:nth-child(1){
+    height: 100%;
+    border:1px solid #999;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+}
+div.msg>div:nth-child(2){
+    height: 100%;
+    border-right: 1px solid #999;
+    border-top:1px solid #999;
+}
+.leftnave{
+    padding: 3% 0 0 6%;
+    
+}
+.leftnave>div>p{
+    font-size:1.15em;
+    padding: 3% 0 3% 10%;
+    cursor: pointer;
+    position: relative;
+    left:0px;
+    border:1px solid transparent;
+    transition: all .5s ease;
+}
+.leftnave>div>p.select,.leftnave>div>p:hover{
+    border:1px solid #555;
+    border-right-color: transparent;
+    font-weight: 600;
+    left: 1px;
+    background: #eee;
+}
+.leftnave>div>div{
+    position: absolute;
+    width: 306%;
+    height: 100%;
+    left: 101%;
+    top:0;
+    display: none;
+    padding: 10%;
+    z-index: 999;
+    overflow: auto;
+    
+}
+.leftnave>div>div.show{
+    display: block;
+}
+#usermessage p{
+    padding: 0.6%;
+    font-size:1.15em;
+    font-weight: 600;
+    border-bottom: 1px dotted #999;
+}
+#usermessage p:nth-child(1){
+    border-color: transparent;
+}
+#usermessage img{
+    width:15%;
+    margin-right: 5%;
+    padding: 3px;
+    border-radius:3px;
+    box-shadow: 0 0 10px #555;
+    cursor: pointer;
+}
+#usermessage p span{
+    font-size:0.95em;
+    font-weight: 100;
+}
+
+/* 页面avatorinfo.html 的样式 */
+.avator>.title{
+    padding: 0.5%;
+    border-bottom: 1px solid #ccc;
+    font-size:1.1em
+}
+.avator>div:nth-child(2)>div{
+    padding: 2%;
+}
+.avator>div:nth-child(2)>div:nth-child(2){
+    border-left: 1px solid #ccc;
+}
+.avator>div:nth-child(2)>div>p:nth-child(1){
+    border-bottom: 1px solid #000;
+    padding: 0;
+    line-height: 1.5;
+    color: #222;
+    font-size: 1.3em;
+    padding-left: 2%;
+}
+.avator>div:nth-child(2)>div:nth-child(1) img{
+    width: 70%;
+    margin-left: 15%;
+}
+.avator>div:nth-child(2)>div:nth-child(1) .name{
+    font-size: 1.4em;
+    padding-left: 40%;
+    font-weight: 600;
+    color: #23527C;
+}
+p.p3{
+    font-size:1.2em;
+    font-weight: 600;
+    padding-left:15%;
+    padding-top:3%;
+}
+p.p3 span{
+    font-size: 0.9em;
+    font-weight: 100;
+}

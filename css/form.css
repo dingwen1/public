@@ -1,0 +1,425 @@
+/* background variations */
+.njsform.bg-white {
+  background: #F1F1F1;
+}
+.submitWrap>a{
+  margin-left: 20px;
+  font-size: 12px;
+  position: relative;
+  top:12px;
+}
+.njsform.bg-white input[type="text"],
+.njsform.bg-white textarea,
+.njsform.bg-white select {
+  border-color: #C9C9C9;
+}
+.njsform.bg-dark {
+  background: #3F3F3F;
+}
+.njsform.bg-dark label {
+  color: #BBB;
+}
+.njsform.bg-dark small {
+  color: #9E9E9E;
+}
+.njsform.bg-dark input[type="text"],
+.njsform.bg-dark input[type="password"],
+.njsform.bg-dark textarea,
+.njsform.bg-dark select {
+  border-color: #000;
+}
+/* standalone */
+.njsformContainer.standalone form {
+  padding: 20px 19px 10px;
+}
+.njsformContainer.standalone form,
+.njsformContainer.standalone .message {
+  border-right: 1px solid;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+}
+.njsformContainer.standalone .bg-white form,
+.njsformContainer.standalone .bg-white .message {
+  border-color: #DDD;
+}
+.njsformContainer.standalone .bg-dark form,
+.njsformContainer.standalone .bg-dark .message {
+  border-color: #222;
+}
+/* lightbox */
+.njsform.njs-lightbox {
+  position: absolute;
+  display: block;
+  width: 520px;
+  left: 50%;
+  margin-left: -260px;
+  top: 50%;
+  z-index: 20000;
+  -webkit-box-shadow: 0 0 25px;
+  -moz-box-shadow: 0 0 25px;
+  box-shadow: 0 0 25px;
+}
+.njs-overlay {
+  background: #CCC;
+  display: block;
+  width: 100%;
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+/* form */
+.njsformContainer {
+  padding: 20px;
+  display: none;
+}
+.njsform {
+  margin: 0 auto;
+  max-width: 520px;
+  font: 14px Reem, Arial, Tahoma, Verdana, sans-serif;
+}
+.njsform small {
+  color: #C5C5C5;
+  font-size: 11px;
+}
+.njsform label {
+  color: #777;
+}
+/* form header */
+.njsform-header {
+  padding: 16px 20px;
+  font-size: 17px;
+  text-shadow: 1px 1px #696969;
+}
+.njsform-header,
+.njsform-socialbar span {
+  text-shadow: 1px 1px #696969;
+}
+/* loader */
+.njsform form .loader {
+  background: url('../img/cs.index/ajax-loader.gif') no-repeat 0 0;
+  display: none;
+  height: 16px;
+  width: 16px;
+  margin-left: 5px;
+}
+/* human question */
+.njsform #humanQuestionLabel {
+  font-size: 15px;
+  width: 124px;
+  display: inline-block;
+  text-align: right;
+  padding-right: 6px;
+  vertical-align: top;
+  margin-top: 7px;
+}
+/* form inner elements */
+.njsform form {
+  padding: 20px 20px 10px;
+}
+.njsform label {
+  display: inline-block;
+  float: left;
+  padding: 6px 0 0 0;
+  width: 130px;
+  margin: 0;
+  clear: both;
+  font-size: 15px;
+}
+.njsform form div {
+  min-height: 43px;
+  position: relative;
+  overflow: hidden;
+  padding-top: 5px;
+}
+.njsform form div.error {
+  min-height: 65px;
+}
+.njsform form div.messageWrap {
+  min-height: 105px;
+}
+.njsform form div.error.messageWrap {
+  min-height: 125px;
+}
+.njsform .error.messageWrap .errorMessage {
+  top: 95px;
+}
+.njsform textarea {
+  height: 78px;
+}
+.njsform input[type="text"],
+.njsform input[type="password"],
+.njsform textarea,
+.njsform select {
+  width: 55%;
+  padding: 6px 9px;
+  color: #A5A5A5;
+  background: #fff;
+  border: 1px solid;
+  border-color: #6D6C6C;
+  border-radius: 0px;
+  margin: 0;
+  font: 14px Reem, Arial, Tahoma, Verdana, sans-serif;
+  vertical-align: middle;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+}
+.njsform select {
+  width: 59%;
+}
+.njsform input[type="text"]:focus,
+.njsform input[type="password"]:focus,
+.njsform textarea:focus,
+.njsform select:focus {
+  background-color: #fff;
+  color: #333;
+  outline: none;
+  position: relative;
+  z-index: 5;
+  border: 1px solid;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+}
+/* submit button */
+.njsform .submitWrap {
+  padding-top: 10px;
+}
+.njsform input[type="submit"] {
+  display: inline-block;
+  border-top: 0;
+  border-bottom: 3px solid;
+  border-left: none;
+  border-right: none;
+  text-shadow: 1px 1px #818181;
+  color: #FFF;
+  padding: 13px 0;
+  width: 130px;
+  font-size: 15px;
+  text-align: center;
+  margin: 0 0 0 130px;
+  -moz-outline: 0 none;
+  outline: 0 none;
+}
+/* validation */
+.njsform .validation-check {
+  background-image: url('../img/cs.index/tick.png');
+  background-position:33% 0 ;
+  display: block;
+  height: 20px;
+  width: 21px;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+.njsform .check-invalid .validation-check {
+  background-position: 0 0;
+  display: none;
+}
+.njsform .check-valid .validation-check {
+  background-position: -22px 0;
+  display: none;
+}
+.njsform .error .validation-check {
+  background-position: right 0;
+  display: none;
+}
+.njsform .error input[type="text"],
+.njsform .error input[type="password"],
+.njsform .error textarea,
+.njsform .error select,
+.njsform .error input[type="text"]:focus,
+.njsform .error input[type="password"]:focus,
+.njsform .error textarea:focus,
+.njsform .error select:focus {
+  border-color: #d74f5a !important;
+  -webkit-box-shadow: 0 0 5px #d74f5a !important;
+  -moz-box-shadow: 0 0 5px #d74f5a !important;
+  box-shadow: 0 0 5px #d74f5a !important;
+}
+.njsform .errorMessage {
+  background: url('../img/cs.index/warning.png') no-repeat 0 7px transparent;
+  padding: 7px 0 7px 20px;
+  display: none;
+  position: absolute;
+  z-index: 100;
+  left: 130px;
+  top: 33px;
+  min-width: 130px;
+  font-size: 12px;
+}
+/* form message */
+.njsform .message {
+  padding: 20px;
+  color: green;
+}
+.njsform .message.error {
+  border-bottom: 1px dashed;
+  padding: 10px 20px;
+}
+/*social bar */
+.njsform-socialbar {
+  border-top: 1px solid;
+}
+.njsform-socialbar span {
+  font-size: 15px;
+  float: left;
+  color: #fff;
+  padding: 16px 0 0 20px;
+  width: 115px;
+}
+.njsform-socialbar ul {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.njsform-socialbar li {
+  list-style: none;
+  float: left;
+}
+.njsform-socialbar li a {
+  background: url('../img/cs.index/social_icons.png') no-repeat 0 0;
+  display: block;
+  width: 50px;
+  height: 50px;
+}
+.njsform-socialbar li .njs_facebook {
+  background-position: -350px 0;
+}
+.njsform-socialbar li .njs_facebook:hover {
+  background-position: -350px -50px;
+}
+.njsform-socialbar li .njs_gplus {
+  background-position: -50px 0;
+}
+.njsform-socialbar li .njs_gplus:hover {
+  background-position: -50px -50px;
+}
+.njsform-socialbar li .njs_linkedin {
+  background-position: -100px 0;
+}
+.njsform-socialbar li .njs_linkedin:hover {
+  background-position: -100px -50px;
+}
+.njsform-socialbar li .njs_twitter {
+  background-position: -300px 0;
+}
+.njsform-socialbar li .njs_twitter:hover {
+  background-position: -300px -50px;
+}
+.njsform-socialbar li .njs_youtube {
+  background-position: -200px 0;
+}
+.njsform-socialbar li .njs_youtube:hover {
+  background-position: -200px -50px;
+}
+/* --------------- responsive styles --------------- */
+/* smartphone Landscape */
+@media screen and (max-width: 480px) {
+  .njsform input[type="text"],
+  .njsform input[type="password"],
+  .njsform textarea,
+  .njsform select {
+    width: 50%;
+  }
+  .njsform select {
+    width: 50%;
+  }
+  .njsform .validation-check {
+    margin-left: 4px;
+  }
+  .njsform.njs-lightbox {
+    width: 440px;
+    left: 20px;
+    top: 20px;
+    margin: 0 !important;
+  }
+}
+/* mobile view */
+@media screen and (max-width: 450px) {
+  .njsform form {
+    padding: 20px 30px;
+  }
+  .njsform label {
+    float: none;
+    display: block;
+    padding: 0 0 5px;
+  }
+  .njsform .errorMessage {
+    left: 5px;
+    top: 58px;
+  }
+  .njsform form div.messageWrap {
+    margin-bottom: 10px;
+  }
+  .njsform form div.error.messageWrap .errorMessage {
+    top: 120px;
+  }
+  .njsform .validation-check {
+    top: 30px;
+  }
+  .njsform form div {
+    min-height: 75px;
+    padding-left: 7px;
+  }
+  .njsform form div.error {
+    min-height: 90px;
+  }
+  .njsform form div.messageWrap {
+    min-height: 120px;
+  }
+  .njsform form div.error.messageWrap {
+    min-height: 150px;
+  }
+  .njsform #humanQuestionLabel {
+    display: block;
+    padding: 0 0 5px;
+    text-align: left;
+    margin: 0;
+  }
+  .njsform-socialbar span {
+    padding-right: 0;
+  }
+  .njsform input[type="text"],
+  .njsform input[type="password"],
+  .njsform textarea,
+  .njsform select {
+    width: 75%;
+  }
+  .njsform select {
+    width: 80%;
+  }
+  .njsform .submitWrap {
+    text-align: left;
+  }
+  .njsform input[type="submit"] {
+    width: 85%;
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 400px) {
+  .njsform select {
+    width: 84%;
+  }
+  .njsform .validation-check {
+    right: 0;
+  }
+  .njsform-socialbar span {
+    display: none;
+  }
+  .njsform-socialbar ul {
+    margin-left: 10px;
+  }
+  .njsform.njs-lightbox {
+    width: 280px;
+  }
+}
+#province,#city{
+  width:55%;
+  height: 28px;
+  padding:1% 2%;
+}

@@ -1,0 +1,268 @@
+--------------------------------------------------------------------- */
+
+
+/* Button
+ * -------------------------------------------------------------------------- */
+
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary.active:focus,
+.btn-primary.active:hover {
+  border-color: #00264d; /* hsb(208, 100%, 10%) */
+  background-color: #003366; /* hsb(208, 100%, 40%) */
+}
+
+
+
+
+
+/* Content */
+
+.img-container,
+.img-preview {
+  background-color: #f7f7f7;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+}
+
+.img-container {
+  min-height: 200px;
+  max-height: 466px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .img-container {
+    min-height: 466px;
+  }
+}
+
+.img-container > img {
+  max-width: 100%;
+}
+
+.docs-preview {
+  margin-right: -15px;
+  margin-bottom: 10px;
+}
+
+.img-preview {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.img-preview > img {
+  max-width: 100%;
+}
+
+
+
+.docs-data > .input-group {
+  margin-bottom: 10px;
+}
+
+.docs-data > .input-group > label {
+  min-width: 80px;
+}
+
+.docs-data > .input-group > span {
+  min-width: 50px;
+}
+
+.docs-buttons > .btn,
+.docs-buttons > .btn-group,
+.docs-buttons > .form-control {
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+.docs-toggles > .btn,
+.docs-toggles > .btn-group,
+.docs-toggles > .dropdown {
+  margin-bottom: 10px;
+}
+
+.docs-tooltip {
+  display: block;
+  margin: -6px -12px;
+  padding: 6px 12px;
+}
+
+.docs-tooltip > .icon {
+  margin: 0 -3px;
+  vertical-align: top;
+}
+
+.tooltip-inner {
+  white-space: normal;
+}
+
+.btn-upload .tooltip-inner {
+  white-space: nowrap;
+}
+
+@media (max-width: 400px) {
+  .btn-group-crop {
+    margin-right: -15px!important;
+  }
+}
+
+.docs-options .dropdown-menu {
+  width: 100%;
+}
+
+.docs-options .dropdown-menu > li {
+  padding: 3px 20px;
+}
+
+.docs-options .dropdown-menu > li:hover {
+  background-color: #f7f7f7;
+}
+
+.docs-options .dropdown-menu > li > label {
+  display: block;
+}
+
+.docs-cropped .modal-body {
+  text-align: center;
+}
+
+.docs-cropped .modal-body > img,
+.docs-cropped .modal-body > canvas {
+  max-width: 100%;
+}
+
+div.img-container{
+  width:100%;
+}
+div.pic-show img{
+  cursor: pointer;
+}
+.pic-tailor{
+  position: fixed;
+  top:-1000px;
+  left:400px;
+  z-index: 999;
+  transition: all .5s ease;
+}
+div.picshow{
+  top:100px
+}
+#i1,#i2{
+  border:1px solid #999;
+}
+#i2{
+  min-height: 200px;
+  height: auto;
+  border-top-color: transparent;
+  overflow: auto;
+  
+}
+#i2 ul li{
+  list-style: disc;
+}
+#i2 ol li{
+  list-style: decimal;
+}
+.la>div,.btn-choose,.info-input>p{
+  font-size:18px;
+  font-weight: 500
+}
+#proPname,#proFam{
+  width: 20%;
+  margin: 5px 3px;
+  padding: 4px;
+  border-color: transparent;
+  background: #eee;
+  border-bottom:1px solid #555;
+  transition: all .5s ease;
+  outline: 0;
+  font-size: 13px;
+}
+#proPname:focus,#proFam:focus{
+  box-shadow: 3px 3px 3px #555;
+}
+
+.pic-show,.btn-choose{
+  display: inline-block;
+  margin: 5px 10px 20px 0;
+}
+.pic-show,.pic-tailor{
+  box-sizing: content-box;
+  padding: 5px;
+  border:1px solid #555;
+}
+
+.pic-tailor{
+  width: 50%;
+  padding: 5px 20px;
+  background:#ddd;
+  box-shadow: 5px 5px 6px #555;
+}
+.img-container{
+  margin: 0;
+  padding: 0
+}
+span.docs-tooltip,#imgok{
+  background: #ccc;
+  color: #111;
+  margin:5px 20px;
+  border-radius: 15px;
+  border:1px solid #555;
+  font-weight: 100;
+  cursor: pointer;
+  transition: all .5s ease;
+}
+#imgok{
+  width: 110px;
+  height: 34px;
+}
+span.docs-tooltip:hover,#imgok:hover{
+  background:#000;
+  color: #fff
+}
+
+.submit-gro{
+  width: 100%;
+  margin:2% 0 1% 0;
+}
+.submit-gro button{
+  padding:8px 16px;
+  border-radius: 5px;
+  margin-left:10%;
+  margin-right: 30px;
+  background: #555;
+  color: #fff;
+  font-size: 15px;
+  text-shadow: 0 1px 0 #000;
+  transition: all .5s ease;
+}
+.submit-gro button:hover{
+  transform: scale(1.05);
+}
+#error-show{
+  color: red;
+  font-style: italic;
+}
+#error-show .alert-success{
+  background: #ccc;
+  width: 50%;
+  margin-top:15px;
+  border-color: #555;
+  color: #555;
+  display: inline-block;
+}
+#close{
+  float: right;
+  border:0;
+  position: absolute;
+  right:-38%;
+}
+#close:hover{
+  transform: scale(1.05)
+}

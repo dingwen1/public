@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="img/cs.index/logo_icon.png">
+    <title>INDEX</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css">
+    <link type="text/css" rel="stylesheet" href="css/ms.css">
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <!-- 构建完整个首页后进行页面的引入 -->
+    <!-- 开始写导航头 -->
+    <div class="container nave" id="nave"></div>
+    <!-- 导航在这里结束 -->
+    <!-- 轮播图套件 -->
+    <div id="myCarousel" class="carousel slide">
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <a href="proinfo.html?pid=77"><img src="img/cs.index/banner1.jpg" alt="First slide"></a>
+                <div class="carousel-caption"></div>
+            </div>
+            <div class="item">
+                <a href="proinfo.html?pid=76"><img src="img/cs.index/banner2.jpg" alt="Second slide"></a>
+                <div class="carousel-caption"></div>
+            </div>
+            <div class="item">
+                <a href="proinfo.html?pid=78"><img src="img/cs.index/banner3.jpg" alt="Third slide"></a>
+                <div class="carousel-caption"></div>
+            </div>
+            <div class="item">
+                <a href="proinfo.html?pid=79"><img src="img/cs.index/banner4.jpg" alt="Third slide"></a>
+                <div class="carousel-caption"></div>
+            </div>
+        </div>
+        <!-- 轮播（Carousel）导航 -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-menu-left"></i>
+        </a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-menu-right"></i>
+        </a>
+        <p id="newmsg"><i class="glyphicon glyphicon-volume-up"></i>&nbsp;&nbsp;影友最新动态：</p>
+    </div>
+    <!-- 图片整体 -->
+    <div class="body-img">
+        <div class="nave-img container">
+            <div class="col-md-3 col-xs-3">
+                <a href="proinfo.html?pid=55">
+                    <img src="img/cs.index/nave1.jpg" alt="">
+                    <img src="img/cs.index/xiangtu.png" alt="">
+                    <p>舞火龙 打铁花 热热闹闹迎新春</p>
+                </a>
+            </div>
+            <div class="col-md-3 col-xs-3">
+                <a href="proinfo.html?pid=58">
+                    <img src="img/cs.index/nave2.jpg" alt="">
+                    <img src="img/cs.index/minsu.png" alt="">
+                    <p>烟火#百姓写真</p>
+                </a>
+            </div>
+            <div class="col-md-3 col-xs-3">
+                <a href="proinfo.html?pid=59">
+                    <img src="img/cs.index/nave3.jpg" alt="">
+                    <img src="img/cs.index/fengqing.png" alt="">
+                   <p>漫步英伦</p>
+                </a>
+            </div>
+            <div class="col-md-3 col-xs-3">
+                <a href="proinfo.html?pid=63">
+                    <img src="img/cs.index/bisai.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-3 col-xs-3">
+                <a href="proinfo.html?pid=62">
+                    <img src="img/cs.index/camera.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-3 col-xs-3">
+                <a href="proinfo.html?pid=60">
+                    <img src="img/cs.index/nave5.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-6 col-xs-6">
+                <a href="proinfo.html?pid=61">
+                     <img src="img/cs.index/nave6.jpg" alt="">
+                     <img src="img/cs.index/fengguang.png" alt="">
+                     <p>光雾山－天然画廊</p>
+                 </a>
+            </div>
+        </div>
+        <div class="origina container" id="origina">
+            <p class="col-md-12">
+                <span><i class="glyphicon glyphicon-camera"></i>&nbsp;原创推荐</span>
+                <span>立即<a href="javascript:;" class="upload">上传作品</a>，开始你的摄影之旅</span>
+                <span> <a href="production.html">更多>></a></span>
+            </p>
+            <div class="col-md-3 col-xs-3">
+                <img src="img/cs.index/magazine.jpg" alt="">
+            </div>
+            <!-- 第一个首页作品数据开始 -->
+            <!-- <div class="col-md-3 col-xs-3">
+                <div class="ori-up">
+                    <a href="#"><img src="img/cs.index/11.jpg" alt=""></a>
+                </div>
+                <div class="ori-down">
+                    <p class="title"><a href="#">禾木秋韵</a></p>
+                    <p class="pro_fam">——风光——</p>
+                    <p class="pro_time">959天前上传</p>
+                    <p class="pro_messa">
+                        <span class="parig">73</span>人气/
+                        <span class="pcomm">2</span>评论/
+                        <span class="preco">4</span>推荐
+                    </p>
+                    <p class="pavator">
+                        丁稳
+                        <img src="img/cs.index/172_m.jpg" alt="">
+                    </p>
+                </div>
+            </div> -->
+            <!-- 第一个首页作品数据结束 -->
+            
+            <!-- 所有作品数据在这里结束 -->
+        </div>
+    </div>
+    <!-- 图片整体结束 -->
+    <!-- body-clutter start -->
+    <div class="body-clutter container">
+        <div class="col-md-7 col-xs-7">
+            <div class="clutter_head">
+                <span><i class="glyphicon glyphicon-user"></i>&nbsp;摄影家推荐</span>
+                <a href="avator.html">更多>></a>
+            </div>
+            <div class="autor_show" id="autor_show">
+                <!-- 第一个摄影家列表 -->
+               <!--  <div class="col-md-4 col-xs-4">
+                    <span><a href="#"><img src="img/cs.index/172_m.jpg" alt=""></a></span>
+                    <span>
+                        <p><a href="#">张木星</a></p>
+                        <p>江西/南昌</p>
+                        <p>作品：3</p>
+                    </span>
+                </div> -->
+                <!-- 第一个摄影家列表结束 -->
+                
+                <!-- 删到这里 -->
+            </div>
+        </div>
+        <div class="col-md-5 col-xs-5">
+            <div class="clutter_head">
+                <span><i class="glyphicon glyphicon-book"> </i> 漫谈</span>
+                <a href="#">更多>></a>
+            </div>
+            <div class="salon_show" id="salon_show">
+                <!-- 第一条漫谈开始 -->
+                <!-- <p>
+                    <a href="#">摄影家谢墨网络访谈录</a>
+                    <span>2013-04-16</span>
+                </p> -->
+                <!-- 第一条漫谈结束 -->
+               
+
+            </div>
+        </div>
+    </div>
+    <!-- body-clitter end -->
+    <!-- footer star -->
+    <div class="footer" id="footer"></div>
+    <!-- footer end -->
+    <script src="js/ms.js"></script>
+    <script>
+        (() => {
+            indexDataLoad();//加载首页数据            
+            /* 解决首页imgs高度自动调整问题 */
+            var $imgs = $("div.body-img .nave-img>*");
+            $imgs.css("height", $imgs.css("width"));
+            $(window).resize(() => {
+                var $imgs = $("div.body-img .nave-img>*");
+                $imgs.css("height", $imgs.css("width"));
+            })
+
+            /* 为头部导航创建本页标记 */
+            $(".familygroup ul li:nth-child(1) a").addClass("redfont");
+
+            /* 解决imgs中p的显示与否 */
+            $("div.body-img .nave-img a img:nth-child(1)").mouseover(e => {
+                $(e.target).next().next().slideDown(1000)
+            }).mouseout(e => {
+                $(e.target).next().next().hide(500)
+            });
+            /* 为上上传作品a创建选择点击事件 */
+            
+        })()
+    </script>
+</body>
+
+</html>

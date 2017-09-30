@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>new page</title>
+    <link rel="icon" href="img/cs.index/logo_icon.png">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/form.css"><!-- 这是表单的css -->
+    <link rel="stylesheet" href="css/themes.css"><!-- 表单主题 -->
+    <link type="text/css" rel="stylesheet" href="css/ms.css">
+</head>
+<body>
+    <div class="container nave" id="nave"></div>
+    <div class="body_all">
+        <div class="container njsformContainer standalone" style="display: block;">
+            <div class="njsform theme-aqua bg-white">
+                <div class="njsform-header">登录</div>
+                <div class="message" style="display: none;"></div>
+                <form action="#" method="post" name="nodejsForm" autocomplete="on">
+
+                    <div class="check-invalid">
+                        <label for="njsform-uname">用户名</label>
+                        <input name="uname" type="text" id="njsform-uname" placeholder="请输入用户名">
+                        <span class="validation-check"></span>
+                    </div>
+
+                    <div class="check-invalid">
+                        <label for="njsform-upwd">密码</label>
+                        <input name="upwd" type="password" id="njsform-upwd" placeholder="请输入密码">
+                        <span class="validation-check"></span>
+                    </div>
+
+                    <div class="submitWrap">
+                        <input class="submit" type="submit" value="登录"><span class="loader"></span>
+                        <a href="register.html">没有账号，点此注册</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer" id="footer"></div>
+    <script src="js/jquery.validate.js"></script><!-- 表单验证 -->
+    <script src="js/ms.js"></script>
+    <script>
+        jQuery.validator.addMethod("isE", function(value, element) {   
+            var tel = /^\w+$/;
+            return this.optional(element) || (tel.test(value));
+        }, "请输入英文字符");
+        $("form[name='nodejsForm']").validate({
+            rules:{
+                uname:{
+                    required:true,
+                    rangelength:[6,10],
+                    isE:true,
+                },
+                upwd:{
+                    required:true,
+                    minlength:6,
+                    maxlength:16,
+                },
+            },
+            messages:{
+                uname:{
+                    required:"这是必须要填写的",
+                    rangelength:"长度必须为6到10个字符串",
+                    isE:"不带空格的英文字符",
+                },
+                upwd:{
+                    required:"这里是必须要填写的",
+                    minlength:"最少需要6个字符",
+                    maxlength:"长度超出16个字符限制",
+                },
+            },
+            
+            errorPlacement: function(a,e) {//验证错误后执行
+                $(e[0]).next().css("display","block").siblings(".errorMessage").remove();
+                $(e[0]).addClass("error").parent().addClass("error")
+                        .append(`<span class="errorMessage" style="display: inline;">
+                                ${a[0].innerHTML}
+                            </span>`)
+            },
+            success:function(e,a){//成功后执行
+                $(a).removeClass("error").siblings(".errorMessage")
+                    .remove();
+                $(a).parent().removeClass("error");
+            },
+            submitHandler:function(form){//提交执行
+                $.post("data/l&r&o/login.php",{
+                    uname:$("#njsform-uname").val(),
+                    upwd:$("#njsform-upwd").val(),
+                },data=>{
+                    console.log(typeof data)
+                    if(Number(data)){
+                        $(".body_all").html(`<div class="alert alert-success container" role="alert">
+                                    您已登录成功！如未跳转，请点击
+                                    <a href="index.html" class="alert-link">这里</a>`
+                                    );
+                         setTimeout(()=>{location="index.html"},3000); 
+                    }else{
+                        $(".body_all").prepend(`<div class="alert alert-danger alert-dismissable  container">
+                                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                                                             &times;
+                                                                </button>
+                                                                 用户名或密码<strong>错误！</strong>请进行一些更改。
+                                                            </div>`);
+                        setTimeout(()=>{
+                            $(".body_all div.alert").remove();
+                        },5000);
+                    }
+                })
+            }
+        })
+    </script>
+</body>
+</html>

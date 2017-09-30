@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="img/cs.index/logo_icon.png">
+    <title>PRODUCTION</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css">
+    <link type="text/css" rel="stylesheet" href="css/ms.css">
+</head>
+
+<body>
+    <div class="container nave" id="nave"></div>
+    <div class="body_all">
+        <div class="fams container">
+            <p>Hi，喜欢摄友们的原创作品吗？马上 <a href="#" class="upload">上传</a> 自己的原创作品，与大家一起交流吧!</p>
+            <div>
+                <p id="littleFam">
+                    <i class="glyphicon glyphicon-list-alt"></i> 类别：
+                    <a href="#">乡土</a>
+                    <a href="#">民俗</a>
+                    <a href="#">风情</a>
+                    <a href="#">风光</a>
+                    <a href="#">建筑</a>
+                    <a href="#">人像</a>
+                    <a href="#">花鸟</a>
+                </p>
+                <p id="orderRule">
+                    <i class="glyphicon glyphicon-sort"></i> 排序：
+                    <a href="javascript:;" class="redfont" data-ascrull="0">最新发布</a>
+                    <a href="javascript:;" data-ascrull="1">人气最多</a>
+                    <a href="javascript:;" data-ascrull="2">评论最多</a>
+                    <a href="javascript:;" data-ascrull="3">推荐最多</a>
+                </p>
+                <a href="avator.html" class="btn btn-info">摄影家</a>
+                <a href="#" class="btn btn-info">联盟会员</a>
+            </div>
+        </div>
+        <div class="origina container" id="origina">
+            <!-- 第一个作品开始 共需要16条记录 -->
+            <!-- <div class="col-md-3 col-xs-3">
+                <div class="ori-up">
+                    <a href="#"><img src="img/cs.index/11.jpg" alt=""></a>
+                </div>
+                <div class="ori-down">
+                    <p class="title"><a href="#">禾木秋韵</a></p>
+                    <p class="pro_fam">——风光——</p>
+                    <p class="pro_time">959天前上传</p>
+                    <p class="pro_messa">
+                        <span class="parig">73</span>人气/
+                        <span class="pcomm">2</span>评论/
+                        <span class="preco">4</span>推荐
+                    </p>
+                    <p class="pavator">
+                        丁稳
+                        <img src="img/cs.index/172_m.jpg" alt="">
+                    </p>
+                </div>
+            </div>
+            ------------------------------------------------------
+            
+            <!-- 全部作品结束于此 -->
+        </div>
+        <div class="page_msg container" id="page_msg">
+            <!-- <span>
+                    共<span class="datanum">40</span>条记录，当前第<span class="pagecurrent">1</span>/<span class="pagecount">2</span>页，每页
+            <span class="pagesize">20</span>条记录
+            </span>
+            <span>
+                <a href="#" class="btn_slect">1</a>
+                <a href="#">2</a>
+                <a href="#">下一页</a>
+                <a href="#">尾页</a>
+            </span> -->
+        </div>
+    </div>
+    <div class="footer" id="footer"></div>
+    <script src="js/ms.js"></script>
+    <script>
+        /* 此函数为判断缓存中的Fam值 进行页面渲染 */
+        $.get("nave.html").then(html => {
+            $("#nave").html(html);
+        }).then(() => {
+            /* 给页面导航A绑定点击事件,上传所选的fam值 */
+            $("div.familygroup ul").on("click", "a[href='production.html']", e => {
+                localStorage.proFam = $(e.target).html();
+            });
+        }).then(() => {
+            /* 给搜索按钮绑定事件 */
+            $("button.input-btn").click(() => {
+                location = "production.html?kw=" +
+                    $("input[name='keyword']").val();
+            });
+        }).then(() => {
+            checkFam();
+        });
+
+        function checkFam() { /* 这个函数只会根据缓存改样式 */
+            if (localStorage.proFam) {
+                var a = localStorage.proFam;
+                $("a[href='production.html']:contains('" + a + "')").addClass("redfont").parent().siblings("li").children()
+                    .removeClass("redfont");
+                $("#littleFam a:contains('" + a + "')").addClass("redfont").siblings("a").removeClass("redfont");
+            }
+        }
+
+        function datarequest(page) {
+            /* production.html页面的数据请求 */
+            /* 在页面加载是执行一次 */
+            /* 在类别选择的时候执行 */
+            /* 发送值有localStorage中的proFam 和 排序规则 以及 当前链接中的kw值 以及page信息？*/
+            /* 切记要把kw值变成输入框的value值 */
+            /* 排序规则的获取：class为redfont的A 中的data-ascrull 属性值 */
+            /* 清空 缓存中 Fam */
+            $.post("data/production/datarequest.php",{
+                fam:localStorage.proFam,
+                order:$("#orderRule a.redfont").attr("data-ascrull"),
+                kw:decodeURIComponent(location.search.slice(4)),
+                page:page,
+            },data=>{
+                /* 开始进行数据的处理 */
+                var html= "";
+                for(var d of data.data){
+                    html+=`<div class="col-md-3 col-xs-3">
+                                <div class="ori-up">
+                                    <a href="proinfo.html?pid=${d.pid}"><img src="${d.pic}"></a>
+                                </div>
+                                <div class="ori-down">
+                                    <p class="title"><a href="proinfo.html?pid=${d.pid}">${d.pname}</a></p>
+                                    <p class="pro_fam">——${d.fname}——</p>
+                                    <p class="pro_time">${linow(d.issueTime)}天前上传</p>
+                                    <p class="pro_messa">
+                                        <span class="parig">${d.popNum}</span>人气/
+                                        <span class="pcomm">${d.commNum}</span>评论/
+                                        <span class="preco">${d.likeNum}</span>推荐
+                                    </p>
+                                    <p class="pavator">
+                                        ${d.user_name}
+                                        <img src="${d.avatar}">
+                                    </p>
+                                </div>
+                            </div>`;
+                }
+                $("#origina").html(html);
+
+                /* 生成分页组件 */
+                var html=`<span>
+                            共<span class="datanum">${data.dataNum}</span>条记录，当前第<span class="pagecurrent">${data.currentPage}</span>/<span class="pagecount">${data.totalPage}</span>页，每页
+                            <span class="pagesize">${data.pageSize}</span>条记录
+                          </span>
+                          <span id="pagegrup">
+                            `;
+                for(var i=1;i<=data.totalPage;i++){
+                    if(i==data.currentPage){
+                        html+=`<a href="#" class="btn_slect">${i}</a>`;
+                    }else{
+                        html+=`<a href="#">${i}</a>`
+                    }
+                }
+                html+=`<a href="#">下一页</a>
+                            <a href="#">尾页</a>
+                          </span>`;
+                $("#page_msg").html(html);
+                $("#page_msg").off("click","a")
+                $("#page_msg").on("click","a",e=>{
+                    e.preventDefault();
+                    var page = $(e.target).html();
+                    if(page=="下一页"){
+                        var nextPage = Number(data.currentPage)+1;
+                        if(nextPage>data.totalPage)nextPage--;
+                        datarequest(nextPage);
+                    }else if(page=="尾页"){
+                        console.log(data.totalPage)
+                        datarequest(data.totalPage);
+                    }else{
+                        datarequest(page);
+                    }
+                    $("html,body").animate({
+                        "scrollTop": "210"
+                    }, "slow");
+                })
+            });
+        }
+
+
+        //类别按钮的点击事件 1，上传当前HTML()到缓存；2，执行checkFam；3，执行datarequest(1)
+        $("#littleFam").on("click", "a", e => {
+            e.preventDefault();
+            localStorage.proFam = $(e.target).html();
+            checkFam();
+            datarequest(1);
+            $("html,body").animate({
+                "scrollTop": "210"
+            }, "slow");
+        });
+        //排序规则的点击事件 1，增加redfont样式并移除兄弟们的样式，2，执行datarequest(1)
+        $("#littleFam").next().on("click", "a", e => {
+            e.preventDefault();
+            $(e.target).addClass("redfont").siblings("a").removeClass("redfont");
+            datarequest(1);
+            $("html,body").animate({
+                "scrollTop": "210"
+            }, "slow");
+        });
+
+        $(document).ready(() => {
+            checkFam();
+            datarequest(1);
+            
+        })
+    </script>
+</body>
+
+</html>

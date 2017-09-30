@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <link rel="icon" href="img/cs.index/logo_icon.png">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/form.css"><!-- 这是表单的css -->
+    <link rel="stylesheet" href="css/themes.css"><!-- 表单主题 -->
+    <link type="text/css" rel="stylesheet" href="css/ms.css">
+</head>
+
+<body>
+    <div class="container nave" id="nave"></div>
+    <div class="body_all">
+        <div class="container njsformContainer standalone" style="display: block;">
+            <div class="njsform theme-aqua bg-white">
+                <div class="njsform-header">注册</div>
+                <div class="message" style="display: none;"></div>
+                <form action="#" method="post" name="nodejsForm" autocomplete="on">
+
+                    <div class="check-invalid">
+                        <label for="njsform-uname">用户名</label>
+                        <input name="uname" type="text" id="njsform-uname" placeholder="请输入用户名">
+                        <span class="validation-check"></span>
+                    </div>
+
+                    <div class="check-invalid">
+                         <label for="njsform-username">姓名</label>
+                         <input name="username" type="text" id="njsform-username" placeholder="请输入姓名">
+                         <span class="validation-check"></span>
+                    </div>
+
+                    <div class="check-invalid">
+                        <label for="njsform-upwd">密码</label>
+                        <input name="upwd" type="password" id="njsform-upwd" placeholder="请输入密码">
+                        <span class="validation-check"></span>
+                    </div>
+
+                    <div class="check-invalid">
+                        <label for="njsform-cpwd">确认密码</label>
+                        <input name="cpwd" type="password" id="njsform-cpwd" placeholder="请确认密码">
+                        <span class="validation-check"></span>
+                    </div>
+                    
+                    <div class="check-invalid">
+                        <label for="njsform-email">邮箱</label>
+                        <input name="email" type="text" id="njsform-email" placeholder="请输入您的邮箱">
+                        <span class="validation-check"></span>
+                    </div>
+
+                    <div class="check-invalid">
+                        <label for="province">省份</label>
+                        <select id="province" name="province"><option value="0">请选择省</option></select>
+                        <span class="validation-check"></span>
+                    </div>
+                    <div class="check-invalid">
+                        <label for="city">城市</label>
+                        <select id="city" name="city"><option value="0">请选择市</option></select>
+                        <span class="validation-check"></span>
+                    </div>
+
+                    <div class="check-valid">
+                        <label for="njsform-phone">电话 <small>(选填)</small></label>
+                        <input name="phone" type="text" id="njsform-phone" size="30" placeholder="请输入您的电话">
+                        <span class="validation-check"></span>
+                    </div>
+
+                    <div class="check-valid">
+                        <label for="njsform-qq"> QQ <small>(选填)</small></label>
+                        <input name="qq" type="text" id="njsform-qq" size="30" placeholder="请输入您的QQ号">
+                        <span class="validation-check"></span>
+                    </div>
+
+                
+                    <div class="messageWrap check-valid">
+                        <label for="njsform-message">简介 <small>(选填)</small></label>
+                        <textarea name="message" id="njsform-message" placeholder="输入个人介绍" spellcheck="true" maxlength="5000" style="margin: 0px; height: 78px; width: 267px;"></textarea>
+                        <span class="validation-check"></span>  
+                    </div>
+                    
+                    <div class="submitWrap">
+                        <input class="submit" type="submit" value="注册"><span class="loader"></span>
+                        <a href="login.html">已有账号，点此登录</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer" id="footer"></div>
+
+    <script src="js/jquery.validate.js"></script><!-- 表单验证 -->
+    <script src="js/ms.js"></script>
+    <script src="js/province.js"></script><!-- 省市级联 -->
+    <script>
+        jQuery.validator.addMethod("isE", function(value, element) {   
+            var tel = /^\w+$/;
+            return this.optional(element) || (tel.test(value));
+        }, "请输入英文字符");
+        jQuery.validator.addMethod("phone", function(value, element) {   
+            var tel = /^1[34578]\d{9}$/;
+            return this.optional(element) || (tel.test(value));
+        }, "手机格式有误");
+        $("form[name='nodejsForm']").validate({
+            rules:{
+                uname:{
+                    required:true,
+                    rangelength:[6,10],
+                    isE:true,
+                    remote:{
+                        url: "data/l&r&o/vali.php",     //后台处理程序
+                        type: "post",               //数据发送方式
+                        dataType: "json",           //接受数据格式   
+                    },
+                },
+                username:{
+                    required:true,
+                    minlength:2,
+                    maxlength:10,
+                },
+                upwd:{
+                    required:true,
+                    minlength:6,
+                    maxlength:16,
+                },
+                cpwd:{
+                    equalTo:"#njsform-upwd"
+                },
+                email:{
+                    required:true,
+                    email:true,
+                    remote:{
+                        url: "data/l&r&o/vali.php",     //后台处理程序
+                        type: "post",               //数据发送方式
+                        dataType: "json",           //接受数据格式   
+                    },
+                },
+                province:{
+                    required:true,
+                    min:1,
+                },
+                city:{
+                    required:true,
+                    min:1,
+                },
+                phone:{
+                    required:false,
+                    phone:true,
+                },
+                qq:{
+                    required:false,
+                    digits:true,
+                    maxlength:13,
+                    min:999
+                },
+                message:{
+                    required:false,
+                    maxlength:400
+                }
+            },
+            messages:{
+                uname:{
+                    required:"这是必填字段",
+                    rangelength:"输入长度不正确",
+                    remote:"该用户名已被占用"
+                },
+                username:{
+                    required:"这是必须要填写的字段",
+                    minlength:"最少两位字符",
+                    maxlength:"最长10位字符",
+                },
+                upwd:{
+                    required:"这是必须要填的",
+                    minlength:"最少6位字符",
+                    maxlength:"最多16位字符",
+                },
+                cpwd:{
+                    equalTo:"密码输入不一致"
+                },
+                email:{
+                    required:"必须要填写字段",
+                    email:"邮箱格式错误",
+                    remote:"该邮箱已被注册"
+                },
+                province:{
+                    required:"这是必须要填写的",
+                    min:"未选择省份",
+                },
+                city:{
+                    required:"这也是必须要填写的",
+                    min:"未选择城市",
+                },
+                phone:{
+                    phone:"电话格式错误",
+                },
+                qq:{
+                    digits:"请填写数字",
+                    maxlength:"长度超出范围",
+                    min:"没这样的QQ号"
+                },
+                message:{
+                    maxlength:"超出字数限制"
+                }
+            },
+            errorPlacement: function(a,e) {//验证错误后执行
+                $(e[0]).next().css("display","block").siblings(".errorMessage").remove();
+                $(e[0]).addClass("error").parent().addClass("error")
+                        .append(`<span class="errorMessage" style="display: inline;">
+                                ${a[0].innerHTML}
+                            </span>`)
+            },
+            success:function(e,a){//成功后执行
+                $(a).removeClass("error").siblings(".errorMessage")
+                    .remove();
+                $(a).parent().removeClass("error");
+            },
+            submitHandler:function(form){//提交执行
+                $.post("data/l&r&o/register.php",{
+                    uname:$("#njsform-uname").val(),
+                    upwd:$("#njsform-upwd").val(),
+                    user_name:$("#njsform-username").val(),
+                    email:$("#njsform-email").val(),
+                    addr:$("#province").find("option:selected").text()+"/"+$("#city").find("option:selected").text(),
+                    userIntro:$("#njsform-message").val(),
+                    phone:$("#njsform-phone").val(),
+                    qq:$("#njsform-qq").val(),
+                    registerTime:(new Date()).getTime()
+                },data=>{
+                    if(data){
+                        $(".body_all").html(`<div class="alert alert-success container" role="alert">
+                                    您已注册成功！如未跳转，请点击
+                                    <a href="index.html" class="alert-link">这里</a>`
+                                    );
+                        setTimeout(()=>{location="index.html"},3000);
+                    }else{
+                        $(".body_all").html(`<div class="alert alert-warning alert-dismissible" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <strong>错误!</strong> 注册出错！正常客户看不到这一条信息
+                                             </div>`);
+                    }
+                })
+            }
+    
+        });
+    </script>
+</body>
+
+</html>

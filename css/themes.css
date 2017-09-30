@@ -1,0 +1,44 @@
+/* ------ Theme: Aqua ------ */
+.njsform.theme-aqua .njsform-header {
+  background: #555555;
+  color: #FFF;
+}
+.njsform.theme-aqua .njsform-socialbar {
+  background: #555;
+  border-color: #555;
+}
+.njsform.theme-aqua #humanQuestionLabel {
+  color: #555555;
+}
+.njsform.theme-aqua .errorMessage,
+.njsform.theme-aqua .message.error {
+  color: #555;
+}
+.njsform.bg-white.theme-aqua .errorMessage,
+.njsform.bg-white.theme-aqua .message.error {
+  color: #13939b;
+}
+.njsform.theme-aqua input[type="text"]:focus,
+.njsform.theme-aqua input[type="email"]:focus,
+.njsform.theme-aqua input[type="url"]:focus,
+.njsform.theme-aqua input[type="tel"]:focus,
+.njsform.theme-aqua textarea:focus,
+.njsform.theme-aqua select:focus {
+  border-color: #555555;
+  -webkit-box-shadow: 0 0 5px #555555;
+  -moz-box-shadow: 0 0 5px #555555;
+  box-shadow: 0 0 5px #555555;
+}
+.njsform.theme-aqua input[type="submit"] {
+  background-color: #555;
+  border-color: #555;
+}
+.njsform.theme-aqua .submitWrap input[type="submit"]:hover {
+  background-color: #444;
+  border-color: #444;
+}
+.njsform.theme-aqua .submitWrap input[type="submit"]:active {
+  background-color: #333;
+  border-color: #333;
+  outline: none;
+}

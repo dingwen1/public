@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人信息</title>
+    <link rel="icon" href="img/cs.index/logo_icon.png">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/form.css">
+    <!-- 这是表单的css -->
+    <link rel="stylesheet" href="css/themes.css">
+    <!-- 表单主题 -->
+    <link rel="stylesheet" href="css/proupload/cropper.min.css">
+    <link rel="stylesheet" href="css/proupload/prouploadmain.css">
+    <link type="text/css" rel="stylesheet" href="css/ms.css">
+</head>
+
+<body>
+    <div class="container nave" id="nave"></div>
+    <div class="body_all">
+        <div class="container body_title">
+            <span>
+              <i class="glyphicon glyphicon-home"> </i>
+              您所在的位置：
+              <a href="index.html">首页</a>
+              >>个人中心
+          </span>
+        </div>
+        <div class="container msg">
+
+            <div class="col-md-3 col-xs-3 leftnave">
+                <!--开始了-->
+                <div>
+                    <p class="select"><i class="glyphicon glyphicon-home"></i> 中心首页</p>
+                    <div id="usermessage" class="show">
+                        <!-- <p>
+                            <img src="img/cs.index/172_m.jpg" alt=""> xiaowenye (普通会员) <br>
+                        </p>
+                        <p>用户资料</p>
+                        <p>用户姓名：<span>丁稳</span></p>
+                        <p>Email邮箱：<span>920249218@qq.com</span></p>
+                        <p>省市：<span>湖南-岳阳</span></p>
+                        <p>注册时间：<span></span></p>
+                        <p>联系电话：<span></span></p>
+                        <p>联系QQ：<span></span></p>
+                        <p>简介：<span></span></p> -->
+                    </div>
+                    
+                </div>
+                <!-- 第一个结束了 -->
+                <div>
+                    <p><i class="glyphicon glyphicon-cog"></i> 账户设置</p>
+                    <div id="setmessage">
+                        <div class="njsformContainer standalone" style="display: block;">
+                            <div class="njsform theme-aqua bg-white">
+                                <div class="njsform-header">更新信息</div>
+                                <div class="message" style="display: none;"></div>
+                                <form action="#" method="post" name="nodejsForm" autocomplete="on">
+
+                                    <div class="check-invalid">
+                                        <label for="njsform-username">姓名</label>
+                                        <input name="username" type="text" id="njsform-username" placeholder="请输入姓名">
+                                        <span class="validation-check"></span>
+                                    </div>
+
+                                    <div class="check-invalid">
+                                        <label for="njsform-email">邮箱</label>
+                                        <input name="email" type="text" id="njsform-email" placeholder="请输入您的邮箱">
+                                        <span class="validation-check"></span>
+                                    </div>
+
+                                    <div class="check-invalid">
+                                        <label for="province">省份</label>
+                                        <select id="province" name="province"><option value="0">请选择省</option></select>
+                                        <span class="validation-check"></span>
+                                    </div>
+                                    <div class="check-invalid">
+                                        <label for="city">城市</label>
+                                        <select id="city" name="city"><option value="0">请选择市</option></select>
+                                        <span class="validation-check"></span>
+                                    </div>
+
+                                    <div class="check-valid">
+                                        <label for="njsform-phone">电话 <small>(选填)</small></label>
+                                        <input name="phone" type="text" id="njsform-phone" size="30" placeholder="请输入您的电话">
+                                        <span class="validation-check"></span>
+                                    </div>
+
+                                    <div class="check-valid">
+                                        <label for="njsform-qq"> QQ <small>(选填)</small></label>
+                                        <input name="qq" type="text" id="njsform-qq" size="30" placeholder="请输入您的QQ号">
+                                        <span class="validation-check"></span>
+                                    </div>
+
+
+                                    <div class="messageWrap check-valid">
+                                        <label for="njsform-message">简介 <small>(选填)</small></label>
+                                        <textarea name="message" id="njsform-message" placeholder="输入个人介绍" spellcheck="true" maxlength="5000" style="margin: 0px; height: 78px; width: 267px;"></textarea>
+                                        <span class="validation-check"></span>
+                                    </div>
+
+                                    <div class="submitWrap">
+                                        <input class="submit" type="submit" value="确认修改"><span class="loader"></span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p><i class="glyphicon glyphicon-pencil"></i> 修改密码</p>
+                    <div id="setpassword">
+                        <div class="njsformContainer standalone" style="display: block;">
+                            <div class="njsform theme-aqua bg-white">
+                                <div class="njsform-header">修改密码</div>
+                                <div class="message" style="display: none;"></div>
+                                <form action="#" method="post" name="nodejsForm" autocomplete="on">
+
+                                    <div class="check-invalid">
+                                        <label for="njsform-upwd">旧密码</label>
+                                        <input name="oldupwd" type="password" id="njsform-oldupwd" placeholder="请输入原密码">
+                                        <span class="validation-check"></span>
+                                    </div>
+                                    <div class="check-invalid">
+                                        <label for="njsform-upwd">新密码</label>
+                                        <input name="newupwd" type="password" id="njsform-newupwd" placeholder="请输入新密码">
+                                        <span class="validation-check"></span>
+                                    </div>
+                                    <div class="check-invalid">
+                                        <label for="njsform-upwd">重复密码</label>
+                                        <input name="newcpwd" type="password" id="njsform-newcpwd" placeholder="请重复密码">
+                                        <span class="validation-check"></span>
+                                    </div>
+
+                                    <div class="submitWrap">
+                                        <input class="submit" type="submit" value="确认修改"><span class="loader"></span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p><i class="glyphicon glyphicon-th-list"></i> 我的作品</p>
+                    <div id="mypro" class="origina container">
+                      <!-- 作品一开始 -->
+                       <!--  <div class="col-md-4 col-xs-4">
+                            <div class="ori-up">
+                                <a href="#"><img src="img/cs.index/11.jpg" alt=""></a>
+                            </div>
+                            <div class="ori-down">
+                                <p class="title"><a href="#">禾木秋韵</a></p>
+                                <p class="pro_fam">——风光——</p>
+                                <p class="pro_time">959天前上传</p>
+                                <p class="pro_messa">
+                                    <span class="parig">73</span>人气/
+                                    <span class="pcomm">2</span>评论/
+                                    <span class="preco">4</span>推荐
+                                </p>
+                                <p class="pavator">
+                                    丁稳
+                                    <img src="img/cs.index/172_m.jpg" alt="">
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-xs-4">
+                            <div class="ori-up">
+                                <a href="#"><img src="img/cs.index/11.jpg" alt=""></a>
+                            </div>
+                            <div class="ori-down">
+                                <p class="title"><a href="#">禾木秋韵</a></p>
+                                <p class="pro_fam">——风光——</p>
+                                <p class="pro_time">959天前上传</p>
+                                <p class="pro_messa">
+                                    <span class="parig">73</span>人气/
+                                    <span class="pcomm">2</span>评论/
+                                    <span class="preco">4</span>推荐
+                                </p>
+                                <p class="pavator">
+                                    丁稳
+                                    <img src="img/cs.index/172_m.jpg" alt="">
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-xs-4">
+                            <div class="ori-up">
+                                <a href="#"><img src="img/cs.index/11.jpg" alt=""></a>
+                            </div>
+                            <div class="ori-down">
+                                <p class="title"><a href="#">禾木秋韵</a></p>
+                                <p class="pro_fam">——风光——</p>
+                                <p class="pro_time">959天前上传</p>
+                                <p class="pro_messa">
+                                    <span class="parig">73</span>人气/
+                                    <span class="pcomm">2</span>评论/
+                                    <span class="preco">4</span>推荐
+                                </p>
+                                <p class="pavator">
+                                    丁稳
+                                    <img src="img/cs.index/172_m.jpg" alt="">
+                                </p>
+                            </div>
+                        </div> -->
+                        <!-- 删除到这里 -->
+                    </div>
+                </div>
+
+                <div>
+                    <p><i class="glyphicon glyphicon-comment"></i> 我的消息</p>
+                    <div id="mynewmsg">功能未上线，敬请期待... ...</div>
+                </div>
+            </div>
+
+            <div class="col-md-9 col-xs-9"></div>
+            <!-- null -->
+            <div class="container pic-tailor">
+                <div class="col-md-9 docs-buttons btn-group row">
+                  <label class="" for="inputImage" title="上传本地图片">
+                    <input class="sr-only" id="inputImage" name="file" type="file">
+                    <span class="docs-tooltip" data-toggle="tooltip" title="点击上传本地图片">
+                      上传本地图片
+                    </span>
+                  </label>
+                  <button id="imgok">确认使用</button>
+                  <button id="close"><i class="glyphicon glyphicon-remove"></i></button>
+                </div>
+                <div class="row">
+                  <div class="img-container">
+                      <img src="img/cs.index/pleas.jpg" alt="Picture">
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer" id="footer"></div>
+    <script src="js/jquery.validate.js"></script>
+    <!-- 表单验证 -->
+    <script src="js/province.js"></script>
+    <!-- 省市级联 -->
+    <script src="js/cropper.min.js"></script>
+    <script src="js/prouploadmain.js"></script>
+    <script src="js/ms.js"></script>
+    <script>
+        /* 配置左侧导航点击事件 */
+        $(".leftnave>div>p").click(e => {
+            $(e.target).addClass("select").siblings().addClass("show")
+                .parent().siblings().children("p").removeClass("select")
+                .next().removeClass("show");
+        });
+        /* 加载数据 */
+        userMessageLoad();
+
+        $("div.origina>div").css("height",378);//补高度不自适应bug
+        
+        $(document).ready(()=>{
+            
+        })
+        /* 配置更新信息表单验证 */
+        $("#setmessage form[name='nodejsForm']").validate({
+          rules:{
+            username:{
+              required:true,
+              minlength:2,
+              maxlength:10,
+            },
+            email:{
+              required:true,
+              email:true,
+              remote:{
+                  url: "data/l&r&o/vali.php",     //后台处理程序
+                  type: "post",               //数据发送方式
+                  dataType: "json",           //接受数据格式   
+              },
+            },
+            province:{
+              required:true,
+              min:1,
+            },
+            city:{
+              required:true,
+              min:1,
+            },
+            phone:{
+              required:false,
+              phone:true,
+            },
+            qq:{
+                required:false,
+                digits:true,
+                maxlength:13,
+                min:999
+            },
+            message:{
+                required:false,
+                maxlength:400
+            }
+          },
+          messages:{
+            username:{
+              required:"这是必须要填写的",
+              minlength:"最少两个字符",
+              maxlength:"最多10位字符",
+            },
+            email:{
+              required:"这是必填字段",
+              email:"不符合邮件格式",
+              remote:"该邮箱已被绑定",
+            },
+            province:{
+              required:"必须选择",
+              min:"没有选择省份",
+            },
+            city:{
+              required:"必须选择",
+              min:"没有选择城市",
+            },
+            phone:{
+              phone:"电话格式错误",
+            },
+            qq:{
+                digits:"请填写数字",
+                maxlength:"长度超出范围",
+                min:"没这样的QQ号",
+            },
+            message:{
+                maxlength:"超出字数限制"
+            }
+          },
+          errorPlacement: function(a,e) {//验证错误后执行
+            $(e[0]).next().css("display","block").siblings(".errorMessage").remove();
+            $(e[0]).addClass("error").parent().addClass("error")
+                    .append(`<span class="errorMessage" style="display: inline;">
+                            ${a[0].innerHTML}
+                        </span>`)
+          },
+          success:function(e,a){//成功后执行
+            $(a).removeClass("error").siblings(".errorMessage")
+                .remove();
+            $(a).parent().removeClass("error");
+          },
+          submitHandler:function(form){//提交执行
+            $.post("data/userupdate/usermessage.php",{
+              user_name:$("#njsform-username").val(),
+              email:$("#njsform-email").val(),
+              addr:$("#province").find("option:selected").text()+"/"+$("#city").find("option:selected").text(),
+              phone:$("#njsform-phone").val(),
+              qq:$("#njsform-qq").val(),
+              userIntro:$("#njsform-message").val(),
+            },data=>{
+              if(data){
+                alert('修改成功！');
+                // location.href = location;
+              }else{
+                alert("网络故障");
+              }
+            })
+          }
+        });
+        /* 配置修改密码表单验证 */
+        $("#setpassword form[name='nodejsForm']").validate({
+            rules:{
+                oldupwd:{
+                    required:true,
+                    minlength:6,
+                    maxlength:16,
+                },
+                newupwd:{
+                    required:true,
+                    minlength:6,
+                    maxlength:16,
+                },
+                newcpwd:{
+                    equalTo:"#njsform-newupwd"
+                },
+            },
+            messages:{
+                oldupwd:{
+                    required:"必须要填写的",
+                    minlength:"最短6个字符",
+                    maxlength:"最多16个字符",
+                },
+                newupwd:{
+                    required:"必须要填写的",
+                    minlength:"最短6个字符",
+                    maxlength:"最多16个字符",
+                },
+                newcpwd:{
+                    equalTo:"两次密码不一致"
+                },
+            },
+            errorPlacement: function(a,e) {//验证错误后执行
+            $(e[0]).next().css("display","block").siblings(".errorMessage").remove();
+            $(e[0]).addClass("error").parent().addClass("error")
+                    .append(`<span class="errorMessage" style="display: inline;">
+                            ${a[0].innerHTML}
+                        </span>`)
+          },
+          success:function(e,a){//成功后执行
+            $(a).removeClass("error").siblings(".errorMessage")
+                .remove();
+            $(a).parent().removeClass("error");
+          },
+          submitHandler:function(){
+              $.post("data/userupdate/pwd.php",{
+                  oldpwd:$("#njsform-oldupwd").val(),
+                  newpwd:$("#njsform-newupwd").val()
+              },data=>{
+                  if(data){
+                      alert("修改成功！")
+                      location = location;
+                  }else{
+                      alert("原密码错误");
+                  }
+              })
+          }
+        })
+    </script>
+</body>
+
+</html>

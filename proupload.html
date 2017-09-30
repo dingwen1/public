@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作品上传</title>
+    <link rel="icon" href="img/cs.index/logo_icon.png">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/proupload/cropper.min.css">
+    <!-- <link rel="stylesheet" href="css/proupload/default.css"> -->
+   <!--  <link rel="stylesheet" href="css/proupload/normalize.css"> -->
+    <link rel="stylesheet" href="css/proupload/prouploadmain.css">
+    <!-- uppro页面的样式调整 -->
+    <link type="text/css" rel="stylesheet" href="css/ms.css">
+    <!-- 主题样式调整 -->
+</head>
+
+<body>
+    <div class="container nave" id="nave"></div>
+    <div class="body_all">
+        <div class="container">
+
+            <div class="la">
+                <div class="name-input">
+                    <i class="glyphicon glyphicon-text-size"></i>   文章标题：
+                    <input type="text" id="proPname" placeholder="请输入您的文章标题">
+                </div>
+                <div class="fam-input">
+                    <i class="glyphicon glyphicon-tags"></i>    文章分类：
+                    <select id="proFam">
+                        <option value="0">——请选择分类——</option>  
+                    </select>
+                </div>
+            </div>
+
+            <div class="pic-input">
+                <div class="btn-choose">
+                   <i class="glyphicon glyphicon-picture"></i>     预览图：
+                </div>
+                <div class="container pic-tailor">
+                  <div class="col-md-9 docs-buttons btn-group row">
+                    <label class="" for="inputImage" title="上传本地图片">
+                      <input class="sr-only" id="inputImage" name="file" type="file">
+                      <span class="docs-tooltip" data-toggle="tooltip" title="点击上传本地图片">
+                        上传本地图片
+                      </span>
+                    </label>
+                    <button id="imgok">确认使用</button>
+                    <button id="close"><i class="glyphicon glyphicon-remove"></i></button>
+                  </div>
+                  <div class="row">
+                    <div class="img-container">
+                        <img src="img/cs.index/pleas.jpg" alt="Picture">
+                    </div>
+                  </div>
+                </div>
+                <!-- 默认隐藏  position top隐藏-->
+                <div class="pic-show">
+                  <img id="pic" src="img/cs.index/jpg.jpg" alt="">
+                </div>
+                <!-- 默认为无预览图片 -->
+            </div>
+
+            <div class="info-input">
+                <p><i class="glyphicon glyphicon-list-alt"></i>     文章详情：</p>
+                <div id="i1"></div>
+                <div id="i2"></div>
+            </div>
+
+        </div>
+        <div class="submit-gro ">
+            <button class="btn btn-default">确定提交</button>
+            <span id="error-show"></span>
+        </div>
+    </div>
+    <div class="footer" id="footer"></div>
+    <script src="js/cropper.min.js"></script>
+    <script src="js/prouploadmain.js"></script>
+    <script src="js/wangEditor.min.js"></script><!-- uppro页面脚本 -->
+    <script src="js/ms.js"></script>
+    <script>
+
+        /* 请求Fam */
+      $.get("data/proupload/sel_fam.php", data => {
+          var html = "";
+          for (var i = 0; i < data.length; i++) {
+            html += `<option value="${data[i].fid}">${data[i].fname}</option>`;
+          }
+          $(html).appendTo($("#proFam"));
+      });
+        /* 配置 cropper*/
+      $(".btn-choose button").click(()=>{
+        $(".pic-tailor").toggleClass("picshow");
+      });
+      $(".pic-show img").click(()=>{
+        $(".pic-tailor").toggleClass("picshow");
+      });
+      $image = $('.img-container > img');
+      $image.cropper("reset");
+      $image.cropper("setAspectRatio",273/193.5);
+      $("#imgok").click(()=>{
+        $(".pic-show img").attr("src",$image.cropper("getCroppedCanvas", { "width": 273, "height": 193.5 }).toDataURL());
+        $(".pic-tailor").removeClass("picshow");
+      });
+      /* 创建编辑器并配置 */
+      var E = window.wangEditor;
+      var editor = new E('#i1','#i2');
+      editor.customConfig.zIndex = 1;
+      editor.customConfig.pasteFilterStyle = false;
+      editor.customConfig.uploadImgServer = 'data/proupload/img.php';
+      editor.customConfig.uploadFileName = 'img';
+      editor.customConfig.uploadImgHeaders = {'Accept': 'text/x-json'};
+      editor.create();
+      /* 上传按钮的配置 */
+      $(".submit-gro button").click(()=>{
+          var pname = $("#proPname").val();
+          var fam = $("#proFam").val();
+          var picSrc = $("#pic").attr("src");
+          var info = editor.txt.html();
+        if(pname!=""&&fam>0&&info!=""){
+            $.post("data/proupload/proupload.php",{
+                family_id:fam,
+                pname:pname,
+                info:info,
+                pic:picSrc,
+                issueTime:(new Date()).getTime()
+            },data=>{
+                if(data){
+                    console.log(data);
+                    $("#error-show").html(`<div class="alert alert-success container" role="alert">
+                                    发布成功！如未跳转，请点击
+                                    <a href="proinfo.html?pid=${data}" class="alert-link">这里</a>`);
+                    setTimeout(()=>{location=`proinfo.html?pid=${data}`},3000);  
+                }else{
+                    $("#error-show").html(`<div class="alert alert-warning alert-dismissible  container" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <strong>错误!</strong> 提交出错！正常客户看不到这一条信息
+                                             </div>`);
+                }
+            });
+        }else{
+            $("#error-show").html("填写不完整，没法提交");
+        }
+      });
+    </script>
+</body>
+
+</html>

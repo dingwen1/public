@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文章详情</title>
+    <link rel="icon" href="img/cs.index/logo_icon.png">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css">
+    <link type="text/css" rel="stylesheet" href="css/ms.css">
+</head>
+<body>
+    <div class="container nave" id="nave"></div>
+    <div class="body_all">
+      <!-- 正文部分 -->
+      <div class="textPart">
+        <div class="textHead container" id="textHead">
+          <!-- <div class="col-md-9 col-xs-9">
+            <p><i class="glyphicon glyphicon-text-size"></i> 文章的名字</p>
+            <p>分类：<span>乡土</span></p>
+            <p>人气：<span>48</span> 评论：<span>7</span> 推荐：<span>5</span></p>
+          </div>
+          <div class="col-md-3 col-xs-3">
+            <a href="#"><img src="img/cs.index/172_m.jpg" alt=""></a>
+            <div>
+              <a href="#">邓喜平</a><br>
+              <span>1223天前发布</span>
+            </div>
+          </div> -->
+        </div>
+        <div class="textBody container" id="textBody">
+          <!-- 文章正文部分 -->
+        </div>
+        <div class="likeIcon"><i id="like-btn" class="a glyphicon glyphicon-thumbs-up"></i></div>
+      </div>
+       <!-- 正文结束，开始评论部分 -->
+      <div class="comment container">
+        <div class="mycomm">
+          <p><i class="glyphicon glyphicon-comment"></i> 您来说两句</p>
+          <textarea id="mycomm" rows="4" onkeyup="this.value = this.value.slice(0, 200)"></textarea>
+          <p>
+            <button id="mycomm-btn">评论</button>
+            <span>最多输入200字</span><span id="isLogin">,且必须<a href="login.html">登录</a></span>
+          </p>
+        </div>
+        <div class="yourcomms" id="yourcomms">
+          <p><i class="glyphicon glyphicon-bullhorn"></i> 网友评论</p>
+          <!-- 第一条评论开始 -->
+          <!-- <div class="yourcomm">
+            <a href="#"><img src="img/cs.index/172_m.jpg" alt=""></a>
+            <div>
+              <p><a href="#">苍井空</a> <span>2013-10-22 12:23:23</span></p>
+              <p>
+                在备受瞩目的第十四届中国国际摄影艺术展览中，湖南省艺术摄影学会副主席谢子龙荣获自由命题黑白类金牌奖的《远影》存在造假嫌疑。笔者昨日无意从《摄影之友》2008年11月刊 “如梦的光影中” 龙福云专题中(2009年2月刊第26面也刊有同幅作品,读者可仔细比对),发现谢子龙的《远影》完全选取龙福云的作品,只是叠加了两个木偶.
+              </p>
+            </div>
+            <p class="clearfix"></p>
+          </div>
+          ----------------------------------------------
+          <div class="yourcomm">
+            <a href="#"><img src="img/cs.index/172_m.jpg" alt=""></a>
+            <div>
+              <p><a href="#">苍井空</a> <span>2013-10-22 12:23:23</span></p>
+              <p>
+                也刊有同幅作品,读者可《远影》完品,只是叠加了两个木偶.
+              </p>
+            </div>
+            <p class="clearfix"></p>
+          </div> -->
+          <!-- 删到这 -->
+        </div>
+      </div>
+    </div>
+    <div class="footer" id="footer"></div>
+    <script src="js/ms.js"></script>
+    <script>
+        proinfoLoad();
+        /* 写点东西控制评论的提交 */
+        if(localStorage.logincode==1){//控制评论按钮旁的东西是否存在
+          $("#isLogin").remove();
+        };
+        $("#mycomm-btn").click(function(){
+          var that = this;
+          if(localStorage.logincode==0){
+            setInterval(()=>{location="login.html"},2000);
+            alert("您没有登陆！登陆跳转中... ...");
+          }else{
+            var mycomm = $("#mycomm").val();
+            if(mycomm.length<5){
+              $(this).next().html("至少输入5个字符").css("color","red");
+            }else{
+              //发送ajax请求
+              $.post("data/proload/updatecomm.php",{
+                pid:Number(location.search.slice(5)),
+                comment:mycomm,
+                commTime:new Date().getTime()
+              },s=>{
+                if(s){
+                  $(that).html("评论成功。").css("color","red");
+                  setTimeout(()=>{location=location},1000);
+                }else{
+                  alert("网络故障");
+                }
+              })
+            }
+          }
+        });
+    </script>
+</body>
+</html>
